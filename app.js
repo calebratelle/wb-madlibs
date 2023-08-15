@@ -60,8 +60,24 @@ app.get('/greet', (req, res) => {
 app.get('/game', (req, res) => {
   const play = req.query.play
   if(play === 'yes'){
-    res.render('game.html.njk', {name: name})
+    res.render('game.html.njk')
   } else {
     res.render('goodbye.html.njk')
   }
 })
+
+
+app.get('/madlib', (req, res) => {
+  res.render('madlib.html.njk', {...req.query})})
+// app.get('/madlib', (req, res) => {
+//     let color = req.query.color
+//     let noun = req.query.noun
+//     let person = req.query.person
+//     let adjective = req.query.adjective
+//     res.render('madlib.html.njk', {
+//       color: color,
+//       noun: noun,
+//       person: person,
+//       adjective: adjective
+//     })
+// })
